@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	 version="2.5">
+
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>testing web app</web-resource-name>
+      <url-pattern>/*</url-pattern>
+      <http-method>POST</http-method>
+      <http-method>GET</http-method>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>testRole</role-name>
+    </auth-constraint>
+    <user-data-constraint>
+      <transport-guarantee>NONE</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <realm-name>myjdbc</realm-name>
+    <form-login-config>
+      <form-login-page>/login.jsp</form-login-page>
+      <form-error-page>/login_error.jsp</form-error-page>
+    </form-login-config>
+  </login-config>
+  <security-role>
+    <role-name>testRole</role-name>
+  </security-role>  
+  <servlet>
+	<display-name>FacesServlet</display-name>
+	<servlet-name>FacesServlet</servlet-name>
+	<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+	<load-on-startup>1</load-on-startup>
+   </servlet>
+
+   <servlet-mapping>
+	<servlet-name>FacesServlet</servlet-name>
+	<url-pattern>*.faces</url-pattern>
+   </servlet-mapping>
+   <welcome-file-list>
+        <welcome-file>index.faces</welcome-file>
+   </welcome-file-list>
+    <ejb-ref>
+        <ejb-ref-name>ejb/CartBean</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <remote>ejbjpa.ejb.Cart</remote>
+    </ejb-ref>
+  <resource-ref>
+    <res-ref-name>jdbc/mysqlpool</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+    <res-sharing-scope>Shareable</res-sharing-scope>
+  </resource-ref>
+
+</web-app>
+

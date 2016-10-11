@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ejb-jar xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" metadata-complete="true" version="3.0" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_0.xsd">
+  <enterprise-beans>
+    <session>
+      <display-name>OrderSessionBean</display-name>
+      <ejb-name>OrderSessionBean</ejb-name>
+      <business-remote>ejbjpa.ejb.OrderSession</business-remote>
+      <ejb-class>ejbjpa.ejb.OrderSessionBean</ejb-class>
+      <session-type>Stateless</session-type>
+      <transaction-type>Container</transaction-type>
+      <persistence-unit-ref>
+        <persistence-unit-ref-name>ejbjpa.ejb.OrderSessionBean/emf</persistence-unit-ref-name>
+        <persistence-unit-name>order-pu</persistence-unit-name>
+        <injection-target>
+          <injection-target-class>ejbjpa.ejb.OrderSessionBean</injection-target-class>
+          <injection-target-name>emf</injection-target-name>
+        </injection-target>
+      </persistence-unit-ref>
+      <security-identity>
+        <use-caller-identity/>
+      </security-identity>
+    </session>
+  </enterprise-beans>
+</ejb-jar>

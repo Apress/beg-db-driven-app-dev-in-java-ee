@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+              version="1.2">
+
+ <managed-bean>
+        <managed-bean-name>OrderJSFBean</managed-bean-name>
+        <managed-bean-class>ejbjpa.jsfbeans.OrderJSFBean
+        </managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+        <managed-bean-name>product</managed-bean-name>
+        <managed-bean-class>ejbjpa.jsfbeans.ProductJSFBean
+        </managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+
+ <navigation-rule>
+    <navigation-case>
+        <description>
+           By clicking the "Move to cart" button on the index.jsp page you move to showcart.jsp
+        </description>
+        <from-outcome>showcart</from-outcome>
+      <to-view-id>/showcart.jsp</to-view-id>
+    </navigation-case>
+    <navigation-case>
+        <description>
+           Clicking the "Continue shopping" turns you back to index.jsp showing the list of books available
+        </description>
+        <from-outcome>continue</from-outcome>
+      <to-view-id>/index.jsp</to-view-id>
+    </navigation-case>
+
+  </navigation-rule>
+</faces-config>

@@ -1,0 +1,21 @@
+.header {
+text-align: center;
+font-family: arial;
+font-style: bold;
+color: Black;
+background: seashell;
+padding: 10px;
+}
+.evenCol {
+text-align: center;
+font-family: arial;
+font-size: 10pt;
+background: Snow;
+
+}
+.oddCol {
+text-align: center;
+font-family: arial;
+font-size: 10pt;
+background: whitesmoke;
+}
